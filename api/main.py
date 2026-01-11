@@ -1,11 +1,12 @@
 import os
 import sys
+
+# Ensure the 'api' directory is in the path for Vercel module discovery
+api_dir = os.path.dirname(os.path.abspath(__file__))
+if api_dir not in sys.path:
+    sys.path.insert(0, api_dir)
+
 from flask import Flask
-
-# Ensure the 'api' directory is in the path for Vercel
-sys.path.append(os.path.dirname(__file__))
-
-from utils import get_all_contributors, resolve_country_code
 from widget import widget_bp
 
 app = Flask(__name__)
