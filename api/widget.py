@@ -291,7 +291,7 @@ def render_map_with_list(country_counts):
         etree.SubElement(final_svg, "rect", 
             x=str(bar_x), y=str(y - 12), 
             width=str(bar_width), height="18",
-            rx="9",
+            rx="4",
             fill=get_color(count, max_count),
             attrib={"class": "country-bar"})
 
