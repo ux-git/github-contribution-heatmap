@@ -299,7 +299,7 @@ def render_map_with_list(country_counts):
             x=str(count_x), y=str(y + 4), 
             attrib={"class": "country-count", "text-anchor": "end"}).text = str(count)
         
-        # Bar (grows right-to-left, ends before the count)
+        bar_width = (count / max_count) * bar_max_width
         bar_x = count_x - 28 - bar_width
         etree.SubElement(final_svg, "rect", 
             x=str(bar_x), y=str(y - 12), 
