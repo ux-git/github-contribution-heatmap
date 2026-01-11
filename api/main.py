@@ -9,8 +9,11 @@ app = Flask(__name__)
 
 # === Configuration ===
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-CACHE_FILE = "repo_cache.json"
-LOCATION_CACHE_FILE = "user_locations.json"
+
+# Use /tmp for caching on Vercel (only writable directory)
+CACHE_DIR = "/tmp" if os.getenv("VERCEL") else "."
+CACHE_FILE = os.path.join(CACHE_DIR, "repo_cache.json")
+LOCATION_CACHE_FILE = os.path.join(CACHE_DIR, "user_locations.json")
 
 # === Cache Helpers ===
 def load_json(filename):
@@ -18,13 +21,18 @@ def load_json(filename):
         try:
             with open(filename, "r") as f:
                 return json.load(f)
-        except:
+        except Exception as e:
+            print(f"Error loading {filename}: {e}")
             return {}
     return {}
 
 def save_json(filename, data):
-    with open(filename, "w") as f:
-        json.dump(data, f)
+    try:
+        with open(filename, "w") as f:
+            json.dump(data, f)
+    except Exception as e:
+        # Fail silently in read-only environments
+        print(f"Warning: Could not save {filename}: {e}")
 
 repo_cache = load_json(CACHE_FILE)
 user_locations = load_json(LOCATION_CACHE_FILE)
