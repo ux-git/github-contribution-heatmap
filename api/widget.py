@@ -147,22 +147,22 @@ def render_map_only(country_counts):
     style_elem = etree.SubElement(final_svg, "style")
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
-        .card { fill: #f9fafb; rx: 12; }
+        .card { fill: #f9fafb; rx: 16; }
         .title { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 600; fill: #0f172a; }
-        .badge-bg { fill: #dbeafe; rx: 16; }
+        .badge-bg { fill: #dbeafe; rx: 18; }
         .badge-text { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; fill: #1e40af; letter-spacing: 0.05em; }
         .divider { stroke: #e2e8f0; stroke-width: 1; }
         .country-fill { stroke: none; }
         .country-outline { fill: none; stroke: #334155; stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
     """
 
-    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), attrib={"class": "card"})
+    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution map"
     
     badge_val = f"{total_countries} COUNTRIES"
     badge_w = 150
     badge_x = card_w - badge_w - 40
-    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", attrib={"class": "badge-bg"})
+    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", rx="18", attrib={"class": "badge-bg"})
     etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y="58", attrib={"class": "badge-text", "text-anchor": "middle"}).text = badge_val
     etree.SubElement(final_svg, "line", x1="40", y1="90", x2=str(card_w-40), y2="90", attrib={"class": "divider"})
 
@@ -230,14 +230,14 @@ def render_map_with_list(country_counts):
     """
 
     # Card Background
-    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), attrib={"class": "card"})
+    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
     
     # Header
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution map"
     badge_val = f"{total_countries} COUNTRIES"
     badge_w = 150
     badge_x = map_area_w - badge_w
-    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", attrib={"class": "badge-bg"})
+    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", rx="18", attrib={"class": "badge-bg"})
     etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y="58", attrib={"class": "badge-text", "text-anchor": "middle"}).text = badge_val
     etree.SubElement(final_svg, "line", x1="40", y1="90", x2=str(map_area_w), y2="90", attrib={"class": "divider"})
 
@@ -304,6 +304,7 @@ def render_map_with_list(country_counts):
         etree.SubElement(final_svg, "rect", 
             x=str(bar_x), y=str(y - 12), 
             width=str(bar_width), height="18",
+            rx="9",
             fill=get_color(count, max_count),
             attrib={"class": "country-bar"})
 
