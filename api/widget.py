@@ -108,7 +108,7 @@ def render_map_only(country_counts):
     style_elem = etree.SubElement(final_svg, "style")
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
-        .card { fill: #f1f5f9; rx: 12; }
+        .card { fill: #f1f5f9; rx: 16; }
         .title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
         .badge-text { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; fill: #1e40af; letter-spacing: 0.05em; }
@@ -194,7 +194,6 @@ def render_map_with_list(country_counts):
         .list-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; fill: #64748b; }
         .country-name { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; fill: #334155; }
         .country-count { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: #1e40af; }
-        .country-bar { rx: 4; }
         .list-divider { stroke: #e2e8f0; stroke-width: 1; }
 
         @media (max-width: 600px) {
