@@ -1,14 +1,14 @@
-# GitHub Contribution Map
+# GitHub Contribution Heatmap
 
 Embeddable SVG widget that visualizes the geographic distribution of your repository's contributors. Shows all-time contributor data on a world map with country-level heatmap coloring.
 
 ## Variants
 
-### Map Only (Default)
-![Map Only](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&variant=map)
-
-### Map + List
+### Map + List (Default)
 ![Map + List](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&variant=list)
+
+### Map Only
+![Map Only](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&variant=map)
 
 *Examples generated for the [sws2apps/organized-app](https://github.com/sws2apps/organized-app) repository.*
 
@@ -32,12 +32,12 @@ Add this to your README.md:
 
 | Variant | Parameter | Description |
 |---------|-----------|-------------|
-| Map only | `variant=map` (default) | World map with heatmap coloring |
-| Map + List | `variant=list` | Map with top 10 countries sidebar |
+| Map + List | `variant=list` (default) | Map with top 10 countries sidebar |
+| Map only | `variant=map` | World map with heatmap coloring |
 
 ```markdown
-<!-- Map with country list -->
-![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&variant=list)
+<!-- Map with country list (Default) -->
+![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO)
 ```
 
 ## Self-Hosting
@@ -87,7 +87,7 @@ GET /api/heatmap
 2. Resolves each contributor's location to a country code
 3. Aggregates counts per country
 4. Renders SVG with proportional color intensity
-5. Caches results for 1 hour
+5. Caches results for 24 hours
 
 ## Limitations
 

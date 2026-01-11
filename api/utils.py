@@ -84,7 +84,7 @@ def get_all_contributors(repo_name, force_refresh=False):
     """Fetch all contributors by paginating through GitHub API."""
     now = time.time()
     
-    if not force_refresh and repo_name in repo_cache and now - repo_cache[repo_name]["timestamp"] < 3600:
+    if not force_refresh and repo_name in repo_cache and now - repo_cache[repo_name]["timestamp"] < 86400:
         return repo_cache[repo_name]["data"]
 
     headers = {"Accept": "application/vnd.github+json"}

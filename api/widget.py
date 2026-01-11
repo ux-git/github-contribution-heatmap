@@ -148,16 +148,16 @@ def render_map_only(country_counts):
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
         .card { fill: #f9fafb; rx: 16; }
-        .title { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 600; fill: #0f172a; }
+        .title { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
-        .badge-text { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; fill: #1e40af; letter-spacing: 0.05em; }
+        .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; fill: #1e40af; letter-spacing: 0.05em; }
         .divider { stroke: #e2e8f0; stroke-width: 1; }
         .country-fill { stroke: none; }
-        .country-outline { fill: none; stroke: #334155; stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
+        .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
     """
 
     etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
-    etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution map"
+    etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution heatmap"
     
     badge_val = f"{total_countries} COUNTRIES"
     badge_w = 150
@@ -215,13 +215,13 @@ def render_map_with_list(country_counts):
     style_elem = etree.SubElement(final_svg, "style")
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
-        .card { fill: #f9fafb; rx: 12; }
-        .title { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 600; fill: #0f172a; }
-        .badge-bg { fill: #dbeafe; rx: 16; }
-        .badge-text { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; fill: #1e40af; letter-spacing: 0.05em; }
+        .card { fill: #f9fafb; rx: 16; }
+        .title { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0f172a; }
+        .badge-bg { fill: #dbeafe; rx: 18; }
+        .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; fill: #1e40af; letter-spacing: 0.05em; }
         .divider { stroke: #e2e8f0; stroke-width: 1; }
         .country-fill { stroke: none; }
-        .country-outline { fill: none; stroke: #334155; stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
+        .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
         .list-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; fill: #64748b; }
         .country-name { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; fill: #334155; }
         .country-count { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: #1e40af; }
@@ -229,11 +229,10 @@ def render_map_with_list(country_counts):
         .list-divider { stroke: #e2e8f0; stroke-width: 1; }
     """
 
-    # Card Background
     etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
     
     # Header
-    etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution map"
+    etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contribution heatmap"
     badge_val = f"{total_countries} COUNTRIES"
     badge_w = 150
     badge_x = map_area_w - badge_w
@@ -324,11 +323,11 @@ def heatmap():
     
     Query params:
         repo: GitHub repo (owner/name)
-        variant: 'map' (default) or 'list' (map + country list)
+        variant: 'list' (default) or 'map'
         refresh: '1' to force refresh cache
     """
     repo = request.args.get('repo', 'sws2apps/organized-app')
-    variant = request.args.get('variant', 'map')
+    variant = request.args.get('variant', 'list')
     force_refresh = request.args.get('refresh') == '1'
     
     try:
