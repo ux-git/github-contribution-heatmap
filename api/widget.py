@@ -108,11 +108,11 @@ def render_map_only(country_counts):
     style_elem = etree.SubElement(final_svg, "style")
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
-        .card { fill: #f1f5f9; rx: 16; }
+        .card { fill: #e5e7eb; rx: 10; }
         .title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
         .badge-text { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; fill: #1e40af; letter-spacing: 0.05em; }
-        .divider { stroke: #e2e8f0; stroke-width: 1; }
+        .divider { stroke: #cbd5e1; stroke-width: 1; }
         .country-fill { stroke: none; }
         .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
         
@@ -122,7 +122,7 @@ def render_map_only(country_counts):
         }
     """
 
-    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
+    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="10", attrib={"class": "card"})
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contributors heatmap"
     
     badge_val = f"{total_countries} COUNTRIES"
@@ -184,17 +184,17 @@ def render_map_with_list(country_counts):
     style_elem = etree.SubElement(final_svg, "style")
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
-        .card { fill: #f1f5f9; rx: 16; }
+        .card { fill: #e5e7eb; rx: 10; }
         .title { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
         .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: #1e40af; letter-spacing: 0.05em; }
-        .divider { stroke: #e2e8f0; stroke-width: 1; }
+        .divider { stroke: #cbd5e1; stroke-width: 1; }
         .country-fill { stroke: none; }
         .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
         .list-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; fill: #64748b; }
         .country-name { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; fill: #334155; }
         .country-count { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: #1e40af; }
-        .list-divider { stroke: #e2e8f0; stroke-width: 1; }
+        .list-divider { stroke: #cbd5e1; stroke-width: 1; }
 
         @media (max-width: 600px) {
             .title { font-size: 40px; }
@@ -204,7 +204,7 @@ def render_map_with_list(country_counts):
         }
     """
 
-    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="16", attrib={"class": "card"})
+    etree.SubElement(final_svg, "rect", x="0", y="0", width=str(card_w), height=str(card_h), rx="10", attrib={"class": "card"})
     
     # Header
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contributors heatmap"
