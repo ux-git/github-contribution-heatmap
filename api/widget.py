@@ -148,9 +148,9 @@ def render_map_only(country_counts):
     style_elem.text = """
         @import url('https://rsms.me/inter/inter.css');
         .card { fill: #f9fafb; rx: 16; }
-        .title { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0f172a; }
+        .title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
-        .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; fill: #1e40af; letter-spacing: 0.05em; }
+        .badge-text { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; fill: #1e40af; letter-spacing: 0.05em; }
         .divider { stroke: #e2e8f0; stroke-width: 1; }
         .country-fill { stroke: none; }
         .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
@@ -218,7 +218,7 @@ def render_map_with_list(country_counts):
         .card { fill: #f9fafb; rx: 16; }
         .title { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; fill: #0f172a; }
         .badge-bg { fill: #dbeafe; rx: 18; }
-        .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; fill: #1e40af; letter-spacing: 0.05em; }
+        .badge-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; fill: #1e40af; letter-spacing: 0.05em; }
         .divider { stroke: #e2e8f0; stroke-width: 1; }
         .country-fill { stroke: none; }
         .country-outline { fill: none; stroke: #334155; stroke-width: 0.4; stroke-linejoin: round; pointer-events: none; opacity: 0.8; }
