@@ -160,10 +160,13 @@ def render_map_only(country_counts):
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contributors heatmap"
     
     badge_val = f"{total_countries} COUNTRIES"
-    badge_w = 150
+    badge_w = 110
+    badge_h = 24
     badge_x = card_w - badge_w - 40
-    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", rx="18", attrib={"class": "badge-bg"})
-    etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y="58", attrib={"class": "badge-text", "text-anchor": "middle"}).text = badge_val
+    badge_y = 42 # Vertically centered with 60px title baseline
+    etree.SubElement(final_svg, "rect", x=str(badge_x), y=str(badge_y), width=str(badge_w), height=str(badge_h), rx=str(badge_h/2), attrib={"class": "badge-bg"})
+    etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y=str(badge_y + badge_h/2 + 1), 
+        attrib={"class": "badge-text", "text-anchor": "middle", "dominant-baseline": "middle"}).text = badge_val
     etree.SubElement(final_svg, "line", x1="40", y1="90", x2=str(card_w-40), y2="90", attrib={"class": "divider"})
 
     orig_root = load_map_svg()
@@ -234,10 +237,13 @@ def render_map_with_list(country_counts):
     # Header
     etree.SubElement(final_svg, "text", x="40", y="60", attrib={"class": "title"}).text = "Contributors heatmap"
     badge_val = f"{total_countries} COUNTRIES"
-    badge_w = 150
+    badge_w = 130
+    badge_h = 28
     badge_x = map_area_w - badge_w
-    etree.SubElement(final_svg, "rect", x=str(badge_x), y="35", width=str(badge_w), height="36", rx="18", attrib={"class": "badge-bg"})
-    etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y="58", attrib={"class": "badge-text", "text-anchor": "middle"}).text = badge_val
+    badge_y = 40
+    etree.SubElement(final_svg, "rect", x=str(badge_x), y=str(badge_y), width=str(badge_w), height=str(badge_h), rx=str(badge_h/2), attrib={"class": "badge-bg"})
+    etree.SubElement(final_svg, "text", x=str(badge_x + badge_w/2), y=str(badge_y + badge_h/2 + 1), 
+        attrib={"class": "badge-text", "text-anchor": "middle", "dominant-baseline": "middle"}).text = badge_val
     etree.SubElement(final_svg, "line", x1="40", y1="90", x2=str(map_area_w), y2="90", attrib={"class": "divider"})
 
     # Vertical divider between map and list
