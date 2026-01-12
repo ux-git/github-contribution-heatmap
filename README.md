@@ -99,7 +99,3 @@ GET /api/heatmap
 
 - Map data source: [sirLisko/world-map-country-shapes](https://github.com/sirLisko/world-map-country-shapes) (based on [SimpleMaps.com](https://simplemaps.com/resources/svg-world))
 - Original SVG licensed under MIT by Pareto Software, LLC.
-
-## License
-
-MIT
