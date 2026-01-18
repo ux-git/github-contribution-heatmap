@@ -14,11 +14,11 @@ Embeddable SVG widget that visualizes the geographic distribution of your reposi
 
 ### Map Dark
 
-![Map Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&variant=map&theme=dark&v=3)
+![Map Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&variant=map&theme=dark)
 
 ### Map + List Dark
 
-![Map + List Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&theme=dark&v=3)
+![Map + List Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=sws2apps/organized-app&theme=dark)
 
 _Examples generated for the [sws2apps/organized-app](https://github.com/sws2apps/organized-app) repository._
 
