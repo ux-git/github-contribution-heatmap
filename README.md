@@ -34,27 +34,35 @@ _Examples generated for the [sws2apps/organized-app](https://github.com/sws2apps
 
 Add this to your README.md:
 
-```markdown
-![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO)
-```
-
-### Variants
-
-| Variant    | Parameter                | Description                         |
-| ---------- | ------------------------ | ----------------------------------- |
-| Map + List | `variant=list` (default) | Map with top 10 countries sidebar   |
-| Map only   | `variant=map`            | World map with heatmap coloring     |
-| Dark theme | `theme=dark`             | Dark mode variant (works with both) |
+### Map Light
 
 ```markdown
-<!-- Map with country list (Default) -->
-
-![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO)
-
-<!-- Dark mode -->
-
-![Contributors Heatmap Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&theme=dark)
+![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&variant=map&theme=light)
 ```
+
+### Map + List Light
+
+```markdown
+![Contributors Heatmap](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&variant=list&theme=light)
+```
+
+### Map Dark
+
+```markdown
+![Contributors Heatmap Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&variant=map&theme=dark)
+```
+
+### Map + List Dark
+
+```markdown
+![Contributors Heatmap Dark](https://github-contribution-heatmap.vercel.app/api/heatmap?repo=OWNER/REPO&variant=list&theme=dark)
+```
+
+| Parameter | Type   | Default | Description                                   |
+| --------- | ------ | ------- | --------------------------------------------- |
+| `repo`    | string | Yes     | GitHub repository (owner/name)                |
+| `variant` | string | `list`  | `list` (with leaderboard) or `map` (map only) |
+| `theme`   | string | `light` | `light` or `dark`                             |
 
 ## Self-Hosting
 
